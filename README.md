@@ -3,15 +3,26 @@ Este projeto é um sistema de gerenciamento de inventário para empresas ou labo
 
 Funcionalidades
 Cadastro de usuários: Permite registrar novos usuários no sistema.
+
+
 Login de usuários: Autenticação de usuários.
+
+
 Gerenciamento de Itens: Incluir, atualizar, visualizar e remover itens do inventário.
+
+
 Alertas de Baixo Estoque: Alertas automáticos quando a quantidade de um item cai abaixo do limiar definido.
+
+
 Tecnologias Utilizadas
+
 Flask
 Flask-SQLAlchemy
 SQLite
 Configuração do Projeto
 Pré-requisitos
+
+
 Antes de começar, certifique-se de ter o Python e o pip instalados em seu sistema. Além disso, você precisará do Flask e do Flask-SQLAlchemy, que podem ser instalados usando pip.
 
 Instalação
