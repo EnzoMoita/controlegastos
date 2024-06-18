@@ -1,0 +1,20 @@
+<!-- templates/homepage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <h1>Bem-vindo à Homepage!</h1>
+    <p>Conteúdo exclusivo para usuários logados.</p>
+
+    <!-- Container para os itens dinâmicos -->
+    <div id="itemsContainer"></div>
+
+    <!-- Incluindo o script JavaScript -->
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+</body>
+</html>

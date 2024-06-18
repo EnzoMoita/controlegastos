@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect, url_for, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User, Item, db
 
@@ -27,6 +27,7 @@ def register():
         db.session.rollback()
         return jsonify({'message': str(e)}), 500
 
+
 @main.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -39,9 +40,14 @@ def login():
     user = User.query.filter_by(username=username).first()
 
     if user and check_password_hash(user.password, password):
-        return jsonify({'message': 'Logado com sucesso, seja bem vindo(a)', 'user': {'username': user.username, 'email': user.email, 'nome': user.nome}}), 200
+        return jsonify({'message': 'Logado com sucesso, seja bem vindo(a)', 'redirect_url': url_for('main.homepage')})
     else:
         return jsonify({'message': 'Username ou Senha estão incorretos, tente novamente'}), 401
+
+
+@main.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
 
 # Rotas para gerenciamento de itens de inventário
 @main.route('/items', methods=['POST'])

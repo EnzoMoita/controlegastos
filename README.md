@@ -28,7 +28,7 @@ Antes de começar, certifique-se de ter o Python e o pip instalados em seu siste
 Instalação
 1. Clone o repositório:
 
-git clone https://<url-do-seu-repositorio>
+git clone https://github.com/EnzoMoita/controlegastos.git
 cd <nome-do-repositorio>
 
 2. Crie um ambiente virtual:
