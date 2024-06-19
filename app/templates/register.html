@@ -18,6 +18,7 @@
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
         <button type="submit">Registrar</button>
+        <button type="button" onclick="window.location.href='/login.html'">Já possue conta? Clica aqui</button>
     </form>
     <!-- Use url_for to reference the JS file -->
     <script src="{{ url_for('static', filename='js/register.js') }}"></script>

@@ -1,40 +1,105 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000; /* Fundo preto */
-    color: #fff; /* Texto em branco para melhor contraste */
+    color: #fff; 
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
     min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .container {
     width: 90%;
-    max-width: 800px; /* Aumenta um pouco a largura máxima */
-    background-color: #222; /* Fundo escuro para o container dos itens */
+    max-width: 800px;
+    background-color: #222;
     padding: 20px;
-    margin-top: 20px; /* Espaço acima do container */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Sombra verde */
-    text-align: center; /* Centraliza texto no container */
+    margin-top: 80px; /* Espaço do topo considerando o cabeçalho */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Alinhamento do texto à esquerda */
 }
 
 .item {
-    border-bottom: 1px solid #333; /* Linha separadora entre itens */
+    background-color: #333; 
+    border-radius: 5px;
+    margin-bottom: 10px;
     padding: 10px;
-    font-size: 16px; /* Tamanho do texto */
-    color: #0f0; /* Cor verde para os textos dos itens */
-    text-align: left; /* Alinhamento do texto à esquerda dentro dos itens */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 16px;
 }
 
-.item:last-child {
-    border-bottom: none; /* Remove a borda do último item */
+.item p {
+    margin: 0;
+    flex: 1; /* Ocupa o espaço disponível */
+    color: #ccc; /* Texto mais claro para melhor contraste */
+}
+
+.item button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px; /* Espaço entre texto e botão */
+}
+
+.item button:hover {
+    background-color: #45a049;
+}
+
+.alert {
+    width: 90%;
+    background-color: #550000; 
+    color: #FF6347; 
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(255, 99, 71, 0.5); 
+}
+
+.alert h2 {
+    margin-top: 0;
+    text-align: center;
 }
 
 h1 {
-    color: #0f0; /* Título em verde */
-    margin-top: 50px; /* Espaço acima do título */
+    color: #0f0;
+    margin-top: 90px; /* Adequado para não sobrepor o cabeçalho */
+    font-size: 24px;
+}
+
+.header button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Cor verde do botão */
+    color: white; /* Texto branco para contraste */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px; /* Espaço à direita para evitar colagem com outros elementos */
+    text-decoration: none; /* Remover sublinhado de links, se aplicável */
+}
+
+.header button:hover {
+    background-color: #45a049; /* Um verde mais escuro ao passar o mouse */
 }

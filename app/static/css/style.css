@@ -37,18 +37,19 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 
 button {
-    width: 100%; /* Botão ocupa toda a largura */
-    padding: 12px 20px;
-    background-color: #4CAF50; /* Cor verde para o botão */
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; /* Espaço entre os botões */
+    background-color: #4CAF50; /* Verde */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px; /* Tamanho maior de fonte */
-    transition: background-color 0.3s; /* Transição suave para o hover */
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #45a049; /* Cor mais escura ao passar o mouse */
+    background-color: #45a049; /* Verde mais escuro */
 }
 

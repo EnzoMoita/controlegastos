@@ -1,8 +1,7 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from .database import db
 
-db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True, static_folder='static')
@@ -14,7 +13,7 @@ def create_app():
     CORS(app)
 
     with app.app_context():
-        from .models import User
+        from .models import User, Item
         db.create_all()
 
     from .routes import main as main_blueprint
@@ -28,5 +27,16 @@ def create_app():
     @app.route('/register.html')
     def register_page():
         return render_template('register.html')
+    
+    @app.route('/add-item.html')
+    def add_item_page():
+        return render_template('add-item.html')
+    
+    @app.route('/update-item/<int:item_id>')
+    def update_item_page(item_id):
+        item = Item.query.get(item_id)
+        if not item:
+            return "Item not found", 404  
+        return render_template('update-item.html', item=item)
 
     return app

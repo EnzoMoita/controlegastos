@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify, redirect, url_for, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import User, Item, db
+from .database import db
+from .models import User, Item
 
 main = Blueprint('main', __name__)
 
@@ -62,8 +63,13 @@ def add_item():
 
     new_item = Item(name=name, quantity=quantity, threshold=threshold)
     db.session.add(new_item)
-    db.session.commit()
-    return jsonify({'message': 'Item adicionado com sucesso', 'item': {'name': name, 'quantity': quantity, 'threshold': threshold}}), 201
+    try:
+        db.session.commit()
+        # Retorna a URL de redirecionamento para ser utilizada pelo cliente
+        return jsonify({'message': 'Item adicionado com sucesso', 'redirect_url': url_for('main.homepage')}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': str(e)}), 500
 
 @main.route('/items', methods=['GET'])
 def get_items():
