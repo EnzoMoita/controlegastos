@@ -57,49 +57,33 @@ Exemplos de como fazer requisições, utilizei o Insomnia:
   }
 
 
-Login METODO POST:
-Utiliza a rota http://localhost:5000/login
-Passando o Body da requisição no formado JSON ex:
+- **Login (POST)**: `http://localhost:5000/login` com o body:
+  ```json
+  {
+      "username": "Teste Teste",
+      "password": "123",
+  }
 
-{
-    "username": "Teste Teste",
-    "password": "123"
-}
+- **Adicionar Item (POST)**: `http://localhost:5000/items` com o body:
+  ```json
+  {
+      "name": "TESTE",
+      "quantity": "150",
+      "threshold": 10
+  }
+
+- **Listar itens (GET)**: `http://localhost:5000/items` sem body:
+
+  
+  - **Atualizar item (PUT)**: `http://localhost:5000/items/{itemId}` com o body:
+  ```json
+  {
+      "name": "TESTE",
+      "quantity": "130",
+  }
+
+ **Deletar item (DELETE)**: `http://localhost:5000/items/{itemId}` sem body:
 
 
-Adicionar  METODO POST:
-Utiliza a rota http://localhost:5000/items
-Passando o Body da requisição no formado JSON ex:
-{
-  "name": "PC gamer",
-  "quantity": 120,
-  "threshold": 10
-}
-
-Adicionar Item METODO POST:
-Utiliza a rota http://localhost:5000/items
-Passando o Body da requisição no formado JSON ex:
-{
-  "name": "PC gamer",
-  "quantity": 120,
-  "threshold": 10
-}
-
-Listar Itens METODO GET:
-Utiliza a rota http://localhost:5000/items
-Sem Body nessa requisição
-
-Atualizar Item METODO PUT:
-Utiliza a rota http://localhost:5000/items/{itemID}
-Passando o Body da requisição no formado JSON ex:
-{
-  "name": "PC gamer",
-  "quantity": 100
-}
-
-Deletar Itens METODO DELETE:
-Utiliza a rota http://localhost:5000/items/{itemID}
-Sem Body nessa requisição
-
------------------------------------------------------
-Para visualizar e testar as requisições junto com o frontend, acesse http://localhost:5000/login.html no navegador.
+----------------------------------------------------
+Para visualizar e testar as requisições junto com o frontend, acesse `http://localhost:5000/login.html` no navegador.
