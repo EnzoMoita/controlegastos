@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
         const itemsContainer = document.getElementById('itemsContainer');
+        const alertsContainer = document.querySelector('.alerts-container');
         data.items.forEach(item => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'item';
             itemDiv.innerHTML = `
-                <p>Item: ${item.name}, Quantidade: ${item.quantity}, Threshold: ${item.threshold}</p>
-                <button onclick="window.location.href='/update-item/${item.id}'">Atualizar Item</button>
-                <button onclick="confirmDelete(${item.id}, '${item.name}')">X</button>
+                <div class="item-detail">Item: ${item.name}</div>
+                <div class="item-detail">Quantidade: ${item.quantity}</div>
+                <div class="item-detail">Quantidade Crítica: ${item.threshold}</div>
+                <button class="update" onclick="window.location.href='/update-item/${item.id}'">Atualizar Item</button>
+                <button class="delete" onclick="confirmDelete(${item.id}, '${item.name}')">Apagar Item</button>
             `;
             itemsContainer.appendChild(itemDiv);
         });
@@ -23,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 alertItem.innerHTML = `Alerta: ${item.name} está com estoque baixo!`;
                 alertDiv.appendChild(alertItem);
             });
-            itemsContainer.appendChild(alertDiv);
+            alertsContainer.appendChild(alertDiv);
         }
     })
     .catch(error => console.error('Error:', error));
 });
 
 function confirmDelete(itemId, itemName) {
-    if (confirm(`Deseja realmente excluir este item: ${itemName}?`)) {
+    if (confirm(`Deseja realmente excluir o item: ${itemName}?`)) {
         deleteItem(itemId);
     }
 }
@@ -40,7 +43,7 @@ function deleteItem(itemId) {
     .then(response => response.json())
     .then(data => {
         alert(data.message);
-        location.reload(); // Recarrega a página para atualizar a lista
+        location.reload(); // Recarrega a página para atualizar a lista após a exclusão
     })
     .catch(error => {
         console.error('Error:', error);

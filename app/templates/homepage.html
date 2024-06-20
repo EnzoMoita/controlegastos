@@ -1,4 +1,3 @@
-<!-- templates/homepage.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +9,20 @@
 <body>
     <div class="header">
         <button onclick="window.location.href='/add-item.html'">Adicionar Novo Item</button>
+        <button onclick="window.location.href='/login.html'">Deslogar</button>
     </div>
-    <h1>Bem-vindo à Homepage!</h1>
-    <p>Conteúdo exclusivo para usuários logados.</p>
+    <h1>Bem-vindo ao Inventário!</h1>
+    <p class="welcome-message">Conteúdo exclusivo para usuários logados.</p>
 
-    <!-- Container para os itens dinâmicos -->
-    <div id="itemsContainer"></div>
+    <!-- Container para os itens dinâmicos e alertas -->
+    <div class="body-container">
+        <div id="itemsContainer" class="items-container">
+            <!-- Itens são adicionados aqui via JavaScript -->
+        </div>
+        <div class="alerts-container">
+            <!-- Alertas são adicionados aqui via JavaScript -->
+        </div>
+    </div>
 
     <!-- Incluindo o script JavaScript -->
     <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>

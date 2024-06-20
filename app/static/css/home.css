@@ -1,105 +1,140 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000; /* Fundo preto */
-    color: #fff; 
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     min-height: 100vh;
 }
 
 .header {
     width: 100%;
-    padding: 20px 40px;
+    padding: 15px 20px;
     display: flex;
-    justify-content: space-between; 
+    flex-direction: row;
     align-items: center;
-    background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
+    background: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    width: 90%;
-    max-width: 800px;
-    background-color: #222;
-    padding: 20px;
-    margin-top: 80px; /* Espaço do topo considerando o cabeçalho */
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    text-align: left; /* Alinhamento do texto à esquerda */
-}
-
-.item {
-    background-color: #333; 
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    font-size: 16px;
-}
-
-.item p {
-    margin: 0;
-    flex: 1; /* Ocupa o espaço disponível */
-    color: #ccc; /* Texto mais claro para melhor contraste */
-}
-
-.item button {
-    background-color: #4CAF50;
+.header button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 5px 10px;
     cursor: pointer;
-    margin-left: 10px; /* Espaço entre texto e botão */
+    font-size: 16px;
+    margin-left: 20px;
 }
 
-.item button:hover {
-    background-color: #45a049;
+.header button:hover {
+    background-color: #4cae4c;
+}
+
+.body-container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: flex-start; /* Alinha os conteúdos no topo */
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima e centraliza */
+    margin: 120px auto 0; /* Ajusta o topo para não sobrepor o header */
+}
+
+.items-container {
+    flex: 3; /* Ajusta a largura relativa dos itens */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens verticalmente e horizontalmente */
+    padding: 20px;
+    max-width: 750px; /* Define a largura máxima para os itens */
+}
+
+.item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 20px; /* Aumenta o padding para mais espaço interno */
+    width: 100%; /* Faz cada item ocupar toda a largura do container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.alerts-container {
+    flex: 1; /* Ajusta a largura relativa dos alertas */
+    background-color: #f8d7da;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px; /* Espaço entre os containers de itens e alertas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Define uma largura fixa para o container de alertas */
 }
 
 .alert {
-    width: 90%;
-    background-color: #550000; 
-    color: #FF6347; 
+    background-color: #f8d7da;
+    color: #d9534f;
     padding: 10px;
-    margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(255, 99, 71, 0.5); 
+    margin-bottom: 10px;
 }
 
 .alert h2 {
     margin-top: 0;
     text-align: center;
+    color: #d9534f;
 }
 
 h1 {
-    color: #0f0;
-    margin-top: 90px; /* Adequado para não sobrepor o cabeçalho */
-    font-size: 24px;
+    color: #5cb85c;
+    margin-top: 120px; /* Espaço para não sobrepor o cabeçalho */
+    font-size: 32px; /* Tamanho maior para maior visibilidade */
+    text-align: center; /* Centraliza o texto */
 }
 
-.header button {
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Cor verde do botão */
-    color: white; /* Texto branco para contraste */
+p.welcome-message {
+    font-size: 20px; /* Aumenta o tamanho do texto para melhor legibilidade */
+    color: #333; /* Cor mais escura para contraste */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px; /* Espaço interno para melhor estética */
+    margin-top: 10px; /* Espaço após o título */
+}
+
+.item button {
+    padding: 8px 16px;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px; /* Espaço à direita para evitar colagem com outros elementos */
-    text-decoration: none; /* Remover sublinhado de links, se aplicável */
+    font-size: 14px;
+    margin-top: 10px;
+    margin-right: 10px; /* Adiciona espaço entre os botões */
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
 }
 
-.header button:hover {
-    background-color: #45a049; /* Um verde mais escuro ao passar o mouse */
+.item button.update {
+    background-color: #4CAF50; /* Cor verde para ação positiva */
+}
+
+.item button.update:hover {
+    background-color: #45a049; /* Verde um pouco mais escuro para hover */
+}
+
+.item button.delete {
+    background-color: #f44336; /* Cor vermelha para ação de deletar */
+}
+
+.item button.delete:hover {
+    background-color: #d32f2f; /* Vermelho um pouco mais escuro para hover */
 }
