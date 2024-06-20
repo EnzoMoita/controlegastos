@@ -18,8 +18,7 @@ Este projeto foi desenvolvido para a disciplina Programação para Web e consist
 - **Flask-CORS**: Extensão para lidar com Cross-Origin Resource Sharing (CORS).
 
 ## Requisitos
-- Python 3.x
-- pip (gerenciador de pacotes Python)
+Antes de começar, certifique-se de ter o Python e o pip instalados em seu sistema. Além disso, você precisará do Flask e do Flask-SQLAlchemy, que podem ser instalados usando pip.
 
 ## Instalação
 1. Clone o repositório:
